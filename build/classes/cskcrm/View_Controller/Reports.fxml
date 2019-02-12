@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cskcrm.View_Controller.ReportsController">
+    <children>
+        <Label layoutX="14.0" layoutY="2.0" prefHeight="53.0" prefWidth="241.0" text="Reports">
+            <font>
+                <Font size="36.0" />
+            </font>
+        </Label>
+        <AnchorPane layoutX="14.0" layoutY="57.0" prefHeight="726.0" prefWidth="1000.0" style="-fx-border-color: black;">
+            <children>
+                <TabPane layoutX="6.0" layoutY="5.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="717.0" prefWidth="988.0" side="LEFT" tabClosingPolicy="UNAVAILABLE">
+                    <tabs>
+                        <Tab text="Appointment Types By Month">
+                            <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                    <children>
+                                        <TableView fx:id="appointmentTypeTable" layoutX="14.0" layoutY="14.0" prefHeight="696.0" prefWidth="937.0">
+                                            <columns>
+                                                <TableColumn fx:id="appointmentMonthColumn" prefWidth="75.0" text="Month" />
+                                                <TableColumn fx:id="appointmentTypeColumn" prefWidth="75.0" text="Type" />
+                                                <TableColumn fx:id="appointmentCountColumn" prefWidth="75.0" text="Count" />
+                                            </columns>
+                                            <columnResizePolicy>
+                                                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                            </columnResizePolicy>
+                                        </TableView>
+                                    </children>
+                                </AnchorPane>
+                            </content>
+                        </Tab>
+                        <Tab text="Schedule By Customer">
+                            <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                    <children>
+                                        <TableView fx:id="customerAppointmentsTable" layoutX="14.0" layoutY="69.0" prefHeight="634.0" prefWidth="931.0">
+                                            <columns>
+                                                <TableColumn fx:id="customerStartTimeColumn" prefWidth="75.0" text="Start Time" />
+                                                <TableColumn fx:id="customerEndTimeColumn" prefWidth="75.0" text="End Time" />
+                                                <TableColumn fx:id="customerNameColumn" prefWidth="75.0" text="Customer" />
+                                                <TableColumn fx:id="customerTypeColumn" prefWidth="75.0" text="Type" />
+                                                <TableColumn fx:id="customerDescriptionColumn" prefWidth="75.0" text="Description" />
+                                                <TableColumn fx:id="customerLocationColumn" prefWidth="75.0" text="Location" />
+                                                <TableColumn fx:id="customerConsultantColumn" prefWidth="75.0" text="Consultant" />
+                                            </columns>
+                                            <columnResizePolicy>
+                                                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                            </columnResizePolicy>
+                                        </TableView>
+                                        <ComboBox fx:id="customerComboBox" layoutX="14.0" layoutY="31.0" prefWidth="150.0" />
+                                        <Label layoutX="14.0" layoutY="14.0" text="Customer" />
+                                        <Button fx:id="customerRefresh" layoutX="173.0" layoutY="31.0" mnemonicParsing="false" onAction="#handleCustomerRefreshButton" text="Refresh" />
+                                    </children>
+                                </AnchorPane>
+                            </content>
+                        </Tab>
+                        <Tab text="Schedule By Consultant">
+                            <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                    <children>
+                                        <TableView fx:id="consultantAppointmentsTable" layoutX="14.0" layoutY="69.0" prefHeight="634.0" prefWidth="931.0">
+                                            <columns>
+                                                <TableColumn fx:id="consultantStartTimeColumn" prefWidth="75.0" text="Start Time" />
+                                                <TableColumn fx:id="consultantEndTimeColumn" prefWidth="75.0" text="End Time" />
+                                                <TableColumn fx:id="consultantCustomerNameColumn" prefWidth="75.0" text="Customer" />
+                                                <TableColumn fx:id="consultantTypeColumn" prefWidth="75.0" text="Type" />
+                                                <TableColumn fx:id="consultantDescriptionColumn" prefWidth="75.0" text="Description" />
+                                                <TableColumn fx:id="consultantLocationColumn" prefWidth="75.0" text="Location" />
+                                            </columns>
+                                            <columnResizePolicy>
+                                                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                            </columnResizePolicy>
+                                        </TableView>
+                                        <Label layoutX="14.0" layoutY="14.0" text="Consultant" />
+                                        <ComboBox fx:id="consultantComboBox" layoutX="14.0" layoutY="31.0" prefWidth="150.0" />
+                                        <Button fx:id="consultantRefresh" layoutX="172.0" layoutY="31.0" mnemonicParsing="false" onAction="#handleConsultantRefreshButton" text="Refresh" />
+                                    </children>
+                                </AnchorPane>
+                            </content>
+                        </Tab>
+                    </tabs>
+                </TabPane>
+            </children>
+        </AnchorPane>
+        <Button fx:id="btnAppointments" layoutX="1025.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleAppointmentsButton" prefHeight="35.0" prefWidth="241.0" text="Appointments" />
+        <Button fx:id="btnCustomers" layoutX="1025.0" layoutY="57.0" mnemonicParsing="false" onAction="#handleCustomersButton" prefHeight="35.0" prefWidth="241.0" text="Customers" />
+        <Button layoutX="1025.0" layoutY="99.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="241.0" text="Reports" />
+        <Button fx:id="btnLogout" layoutX="1025.0" layoutY="751.0" mnemonicParsing="false" onAction="#handleLogoutButton" prefHeight="35.0" prefWidth="241.0" text="Logout" />
+    </children>
+</AnchorPane>
