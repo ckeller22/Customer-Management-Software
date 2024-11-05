@@ -12,8 +12,8 @@ package cskcrm.util;
 public class Constants {
 
     public static final String DBC_DRIVER = "com.mysql.jdbc.Driver";
-    public static final String DB_NAME = "U04SrD";
-    public static final String DB_URL = "jdbc:mysql://52.206.157.109/" + DB_NAME;
-    public static final String DB_USER = "U04SrD";
+    public static final String DB_NAME = "dbname";
+    public static final String DB_URL = "jdbc:mysql://hostname/" + DB_NAME;
+    public static final String DB_USER = "user";
     public static final String DB_PASS = "super-secure-password";
 }
